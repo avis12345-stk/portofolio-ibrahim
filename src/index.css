@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Cinzel", serif;
+  --font-accent: "Playfair Display", serif;
+
+  --color-parchment: #F5E6C8;
+  --color-parchment-dark: #E8D5B5;
+  --color-ink: #1B263B;
+  --color-sepia: #4B2E1E;
+  --color-gold: #C6A75E;
+  --color-science-green: #1F3A2E;
+  --color-science-navy: #1B263B;
+
+  --color-dark-bg: #1A120B;
+  --color-dark-surface: #2D2013;
+  --color-dark-text: #D5C4A1;
+}
+
+@layer base {
+  body {
+    @apply font-serif transition-colors duration-500;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wider;
+  }
+}
+
+.parchment-texture {
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+}
+
+.vintage-border {
+  border: 2px solid var(--color-gold);
+  padding: 4px;
+  position: relative;
+}
+
+.vintage-border::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--color-gold);
+  pointer-events: none;
+}
+
+.sketch-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2s ease-out forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
